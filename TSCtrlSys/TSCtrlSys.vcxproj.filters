@@ -1,0 +1,1051 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Grid Source Files">
+      <UniqueIdentifier>{23ae19f2-1a78-497f-920f-37958c009c3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PointGE Source Files">
+      <UniqueIdentifier>{b69300df-23d2-44c2-829d-418a652f0f0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Grid Header Files">
+      <UniqueIdentifier>{65cd4f49-e712-4c92-8c9e-eab65506cfb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PointGE Header Files">
+      <UniqueIdentifier>{b9ea7f7a-b868-4a6c-981c-58f5acdfb105}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source Files\UI_Dlg">
+      <UniqueIdentifier>{19401b10-eb42-4735-a11b-f42f209aa5f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI_DLG">
+      <UniqueIdentifier>{21585259-5c5c-438f-afef-d298564507c6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AlgorithmBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CButtonST\BCMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardCalibDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardCalibDlgEX.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CButtonST\BtnST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraCtrlBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdEditBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdRun.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigOp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DxfClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EncryptOp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FeedModelCtrlDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FindmarkJog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Function.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GIniFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GradientProgressCtrl\GradientProgressCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageDateProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageProcessBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgStatic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IOCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JogButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KSoft.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KSvdhEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MFCOutputWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MFCRightBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Smooth\MyPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PageApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PageImg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PageIn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PageJet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PageOut.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PagePos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PageSys.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Smooth\PointGE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Precision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RedrawTrack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TSCtrlSys.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TSCtrlSysDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TSCtrlSysView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserManage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserRegister.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid\GridCtrl_src\GridCell.cpp">
+      <Filter>Source Files\Grid Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid\GridCtrl_src\GridCellBase.cpp">
+      <Filter>Source Files\Grid Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid\GridCtrl_src\GridCtrl.cpp">
+      <Filter>Source Files\Grid Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid\GridCtrl_src\GridDropTarget.cpp">
+      <Filter>Source Files\Grid Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid\GridCtrl_src\InPlaceEdit.cpp">
+      <Filter>Source Files\Grid Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid\GridCtrl_src\TitleTip.cpp">
+      <Filter>Source Files\Grid Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KFTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AListCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PageMotor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CSVOperator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialPort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PageComPort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ComDisp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ComLaser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ComWeight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ComLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MilMod.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CButtonST\ShadeButtonST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CButtonST\BackgroundUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CButtonST\BkDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CButtonST\CeXDib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CButtonST\WinXPButtonST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SMC606.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgAxisPos.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgZSet.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgBalanceOp.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgCircle.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgCom.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgDelay.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgDispenser.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgDispenserParam.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgGoSub.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgGoto.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgHEndPoint.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgHStartPoint.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgHWorkPoint.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgIOCtrl.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgIOSet.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgJetAdjust.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgJetParam.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgJogFeed.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgJogUnFeed.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgJogXYZ.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgLineEnd.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgLineParam.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgLogin.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgLoop.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgMark.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgNeedleAdjust.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgNeedleZAdjust.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgNote.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgPixel.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgPointEnd.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgPointParam.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgPosInfo.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgProgOffset.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgProgSel.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgRepeat.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgRepeatZheight.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgShotCut.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DLgSpeed.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgStandBy.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgTool.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgTrack.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgWcLine.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgWcPoint.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgWCRect.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgZBaseHightSet.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgZClearance.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgZHeight.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgZSame.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraDS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraHK.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgHDot.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgTrackDraw.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgLdUld.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgMachineParam.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgMachineSet.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgPathEdit.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgTitle.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgDualValve.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgParamDot.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgParamLine.cpp">
+      <Filter>Source Files\UI_Dlg</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AlgorithmBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CButtonST\BCMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardCalibDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardCalibDlgEX.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CButtonST\BtnST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraCtrlBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdEditBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdRun.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComPlc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigOp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DxfClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\EncryptOp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FeedModelCtrlDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FindmarkJog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Function.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GIniFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalDef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GradientProgressCtrl\GPCMemDC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GradientProgressCtrl\GradientProgressCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageDateProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageProcessBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgStatic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IOCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JogButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KSoft.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MFCOutputWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MFCRightBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PageApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PageImg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PageIn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PageJet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PageOut.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PagePos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PageSys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="paramdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Precision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RedrawTrack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SerialPort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TSCtrlSys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TSCtrlSysDoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TSCtrlSysView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserManage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserRegister.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid\GridCtrl_src\CellRange.h">
+      <Filter>Header Files\Grid Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid\GridCtrl_src\GridCell.h">
+      <Filter>Header Files\Grid Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid\GridCtrl_src\GridCellBase.h">
+      <Filter>Header Files\Grid Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid\GridCtrl_src\GridCtrl.h">
+      <Filter>Header Files\Grid Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid\GridCtrl_src\GridDropTarget.h">
+      <Filter>Header Files\Grid Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid\GridCtrl_src\InPlaceEdit.h">
+      <Filter>Header Files\Grid Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid\GridCtrl_src\MyMemDC.h">
+      <Filter>Header Files\Grid Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid\GridCtrl_src\TitleTip.h">
+      <Filter>Header Files\Grid Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Smooth\MyPoint.h">
+      <Filter>Header Files\PointGE Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Smooth\PointGE.h">
+      <Filter>Header Files\PointGE Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KFTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AListCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PageMotor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CSVOperator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PageComPort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComDisp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComLaser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComWeight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComLight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MilMod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CButtonST\ShadeButtonST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CButtonST\BackgroundUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CButtonST\BkDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CButtonST\CeXDib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CButtonST\WinXPButtonST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WEdit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SMC606.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LTSMC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgAxisPos.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgZSet.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgBalanceOp.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgCircle.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgCom.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgDelay.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgDispenser.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgDispenserParam.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgGoSub.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgGoto.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgHEndPoint.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgHStartPoint.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgHWorkPoint.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgIOCtrl.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgIOSet.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgJetAdjust.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgJetParam.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgJogFeed.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgJogUnFeed.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgJogXYZ.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgLineEnd.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgLineParam.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgLogin.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgLoop.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgMark.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgNeedleAdjust.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgNeedleZAdjust.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgNote.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgPixel.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgPointEnd.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgPointParam.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgPosInfo.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgProgOffset.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgProgSel.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgRepeat.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgRepeatZheight.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgShotCut.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DLgSpeed.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgStandBy.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgTool.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgTrack.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgWcLine.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgWcPoint.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgWCRect.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgZBaseHightSet.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgZClearance.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgZHeight.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgZSame.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraDS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraHK.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgHDot.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgTrackDraw.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgLdUld.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgMachineParam.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgMachineSet.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgPathEdit.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgTitle.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgDualValve.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgParamDot.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgParamLine.h">
+      <Filter>Header Files\UI_DLG</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Aqua03副本.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Emergency.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\icon2.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\LEDOFF.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\LEDON.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\mainfram.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Network.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Pause.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Pause.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Run.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Run.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Stop.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Stop.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolbarColor.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolbarColor_EN.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ToolDRAW256.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TSCtrlSys.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TSCtrlSys.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TSCtrlSysDoc.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\UnNetwork.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="UserImages.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ReadMe.txt" />
+    <None Include="..\..\..\SD950_1229通用_双控版_temp2\TSCtrlSys\temp2.ncb" />
+    <None Include="..\..\..\SD950_1229通用_双控版_temp2\TSCtrlSys\temp2.sln" />
+    <None Include="TSCtrlSys.reg" />
+    <None Include="res\icon1.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Delete.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Ok.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Arc.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Dot.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\End.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Pass.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Start.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="POINTER.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor1.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cur00001.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cur00002.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor3.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="NODROP.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cur00003.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor4.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor5.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor6.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor7.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cur00004.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cur00005.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cur00006.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\KF Logo.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ico00001.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\shutdown.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\setup.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\path.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\user.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\camera.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\allAdjust.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\singleAdjust.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\save_s.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\EZ-Run.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\EZ-pause.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\EZ-stop.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\arrow-d.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\arrow-u.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\MovTo.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\home.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TSCtrlSys.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="res\XPStyle.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="hvdh\lib\HVDAILT.lib">
+      <Filter>Header Files</Filter>
+    </Library>
+    <Library Include="Lib\Win32\SapClassBasic.lib" />
+    <Library Include="Lib\Win32\VS2010\SapClassGuiD.lib" />
+  </ItemGroup>
+</Project>

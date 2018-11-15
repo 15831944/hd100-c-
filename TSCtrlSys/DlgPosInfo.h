@@ -65,4 +65,6 @@ public:
 
 	CStatic m_staticProgName;
 	void SetCurProgName();
+	afx_msg void OnBnClickedBtnLoadBoard();
+	afx_msg void OnBnClickedBtnUnloadBoard();
 };

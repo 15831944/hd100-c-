@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
-// Used by TSCtrlSys.rc
+// Microsoft Visual C++ 生成的包含文件。
+// 供 TSCtrlSys.rc 使用
 //
 #define IDOK2                           2
 #define IDCANCEL2                       3
@@ -247,8 +247,8 @@
 #define IDI_ICON_HOME                   451
 #define IDD_DLG_HPOINT_DOT              452
 #define IDD_DLG_DUAL_VALVE              453
-#define IDD_DLG_PARAM_DOT               455
 #define IDD_DLG_PARAM_LINE              454
+#define IDD_DLG_PARAM_DOT               455
 #define IDC_DLG_IO_TAB                  480
 #define IDC_DLG_IO_IN_GRID              481
 #define IDC_DLG_IO_OUT_GRID             482
@@ -823,6 +823,7 @@
 #define IDC_BTN_MOVTO_LASER_BASE_POS    2062
 #define IDC_BTN_USER                    2062
 #define IDC_BTN_PAUSE2                  2062
+#define IDC_Btn_Load_Board              2062
 #define IDC_BUTTON_PAT_BTEST            2063
 #define IDC_BUTTON4                     2063
 #define IDC_BTN_SET_JET_TEST_POS2       2063
@@ -1193,6 +1194,7 @@
 #define IDC_RADIO_VALVE_2_SYS           2306
 #define IDC_STATIC_Image                2307
 #define IDC_BTN_Teach_Rotate_1          2308
+#define IDC_STATIC_PARAM_DOT            2308
 #define IDC_BTN_Rotate                  2309
 #define IDC_BTN_Teach_Valve_1           2310
 #define IDC_BTN_MultiValve_Set          2310
@@ -1205,14 +1207,12 @@
 #define IDC_BTN_Move_Valve_TD1          2315
 #define IDC_LIST2                       2315
 #define IDC_BTN_Move_Valve_TD2          2316
-
 #define IDC_DLG_PARAM_DOT_GRID          2403
 #define IDC_DLG_PARAM_LINE_GRID         2404
 #define IDC_COMBO_MODIFY                2405
 #define IDC_BTN_PARAM_DOT_SAVE          2406
 #define IDC_BTN_PARAM_LINE_SAVE         2407
-#define IDC_STATIC_PARAM_DOT            2308
-
+#define IDC_Btn_Unload_Board            2408
 #define IDC_SET_HEIGHT_COMBO_ID         2812
 #define IDC_DLG_NEEDLE_ZH_EDIT_Z        2818
 #define IDC_DLG_NEEDLE_ZH_EDIT_X        2819
@@ -1381,9 +1381,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        456
+#define _APS_NEXT_RESOURCE_VALUE        458
 #define _APS_NEXT_COMMAND_VALUE         32953
-#define _APS_NEXT_CONTROL_VALUE         2408
+#define _APS_NEXT_CONTROL_VALUE         2409
 #define _APS_NEXT_SYMED_VALUE           249
 #endif
 #endif

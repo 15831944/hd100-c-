@@ -1,7 +1,7 @@
 #define VER_Major		1
 #define VER_Minor		0
 #define VER_Release	2058
-#define VER_Build		1595
+#define VER_Build		1623
 #define VER_Version	MAKELONG(MAKEWORD(VER_Major, VER_Minor), VER_Release)
 
 #define _Stringizing(v)	#v

@@ -2218,7 +2218,7 @@ void CDlgPathEdit::OnCmdType(UINT ID)
 	strTemp.Format("Add CMD£º%s", szCmdline[tTempCmdPoint.tType]);
 	g_pFrm->AddMsg(strTemp);
 
-	::WaitForSingleObject(g_runListEvent,INFINITE);
+//	::WaitForSingleObject(g_runListEvent,INFINITE);
 
 	if (bListOper)
 	{
@@ -2242,7 +2242,7 @@ void CDlgPathEdit::OnCmdType(UINT ID)
 	}
 	//////////////////////////////////////////////////////////////////////////
 	UpdateCmdListBox(iSelIndex);
-	g_runListEvent.SetEvent();
+//	g_runListEvent.SetEvent();
 }
 
 void CDlgPathEdit::SetZSame(int iFrmIndex)

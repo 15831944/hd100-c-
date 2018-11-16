@@ -106,32 +106,59 @@ END
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "res\\TSCtrlSys.ico"
+
 IDI_LED_OFF             ICON                    "res\\LEDOFF.ico"
+
 IDI_LED_ON              ICON                    "res\\LEDON.ico"
+
 IDI_ICON_NET            ICON                    "res\\Network.ico"
+
 IDI_ICON_UNNET          ICON                    "res\\UnNetwork.ico"
+
 IDI_ICON_CANCEL         ICON                    "res\\Delete.ico"
+
 IDI_ICON_OK             ICON                    "res\\Ok.ico"
+
 IDI_ICON_EDIT_ARC       ICON                    "res\\Arc.ico"
+
 IDI_ICON_EDIT_DOT       ICON                    "res\\Dot.ico"
+
 IDI_ICON_EDIT_END       ICON                    "res\\End.ico"
+
 IDI_ICON_EDIT_PASS      ICON                    "res\\Pass.ico"
+
 IDI_ICON_EDIT_START     ICON                    "res\\Start.ico"
+
 IDI_ICON_SHUTDOWN       ICON                    "res\\shutdown.ico"
+
 IDI_ICON_SET            ICON                    "res\\setup.ico"
+
 IDI_ICON_PATH           ICON                    "res\\path.ico"
+
 IDI_ICON_USER           ICON                    "res\\user.ico"
+
 IDI_ICON_CAMERA         ICON                    "res\\camera.ico"
+
 IDI_ICON_ALL_ADJUST     ICON                    "res\\allAdjust.ico"
+
 IDI_ICON_SINGLE_ADJUST  ICON                    "res\\singleAdjust.ico"
+
 IDI_ICON_SAVE_S         ICON                    "res\\save_s.ico"
+
 IDI_ICON_EZ_RUN         ICON                    "res\\EZ-Run.ico"
+
 IDI_ICON_EZ_PAUSE       ICON                    "res\\EZ-pause.ico"
+
 IDI_ICON_EZ_STOP        ICON                    "res\\EZ-stop.ico"
+
 IDI_ICON_ARROW_D        ICON                    "res\\arrow-d.ico"
+
 IDI_ICON_ARROW_U        ICON                    "res\\arrow-u.ico"
+
 IDI_ICON_MOVETO         ICON                    "res\\MovTo.ico"
+
 IDI_ICON_HOME           ICON                    "res\\home.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -139,18 +166,31 @@ IDI_ICON_HOME           ICON                    "res\\home.ico"
 //
 
 IDR_MAINFRAME_256       BITMAP                  "res\\ToolbarColor.bmp"
+
 IDR_MAINFRAME_COMMAND   BITMAP                  "res\\ToolDRAW256.bmp"
+
 IDB_BITMAP_BUTTON       BITMAP                  "res\\bitmap1.bmp"
+
 IDB_BITMAP_MOVE         BITMAP                  "res\\bmp00001.bmp"
+
 IDB_BITMAP_TOOLBAR      BITMAP                  "res\\ToolbarColor.bmp"
+
 IDB_BITMAP_ESTOP        BITMAP                  "res\\Emergency.bmp"
+
 IDB_BITMAP_PAUSE        BITMAP                  "res\\Pause.bmp"
+
 IDB_BITMAP_RUN          BITMAP                  "res\\Run.bmp"
+
 IDB_BITMAP_STOP         BITMAP                  "res\\Stop.bmp"
+
 IDB_BITMAP_SMILE        BITMAP                  "res\\icon2.bmp"
+
 IDB_BITMAP_COMMAND      BITMAP                  "res\\ToolDRAW256.bmp"
+
 IDB_BITMAP_IOSTS        BITMAP                  "res\\Aqua03副本.bmp"
+
 IDB_BMP_LOG             BITMAP                  "res\\KF Logo.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2291,14 +2331,14 @@ BEGIN
     PUSHBUTTON      "----●\n终点",IDC_BUTTON_EDIT4,0,113,30,28,BS_MULTILINE
     PUSHBUTTON      "显示路径",IDC_BTN_SHOWPATH,377,119,38,22
     PUSHBUTTON      "示教",IDC_BUTTON_EDIT_SINGLE,377,2,38,15,BS_MULTILINE
-    PUSHBUTTON      "偏移",IDC_BUTTON_EDIT_ALL,377,23,38,15,BS_MULTILINE
+    PUSHBUTTON      "偏移",IDC_BUTTON_EDIT_ALL,377,19,38,15,BS_MULTILINE
     EDITTEXT        IDC_EDIT_MODIFY,424,127,40,14,ES_AUTOHSCROLL
     PUSHBUTTON      "自动校正正面轨迹",IDC_BTN_REVIEW_F,377,72,38,22,BS_MULTILINE
     PUSHBUTTON      "自动校正背面轨迹",IDC_BTN_REVIEW_B,377,95,38,22,BS_MULTILINE
     CONTROL         "",IDC_LIST_PATH,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,29,0,347,141
-    PUSHBUTTON      "保存",IDC_BTN_SAVE,377,44,38,15
+    PUSHBUTTON      "保存",IDC_BTN_SAVE,377,36,38,15
     COMBOBOX        IDC_COMBO_MODIFY,472,69,43,30,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
-    PUSHBUTTON      "参数",IDC_BTN_PARAM,377,50,17,15
+    PUSHBUTTON      "参数",IDC_BTN_PARAM,377,53,38,15
 END
 
 IDD_DLG_TRACKDRAW DIALOGEX 0, 0, 239, 233
@@ -2865,7 +2905,6 @@ BEGIN
 
     IDD_DLG_DUAL_VALVE, DIALOG
     BEGIN
-        RIGHTMARGIN, 435
         BOTTOMMARGIN, 268
     END
 
@@ -2886,17 +2925,45 @@ END
 //
 
 IDC_CURSOR_US           CURSOR                  "res\\cursor1.cur"
+
 IDC_CURSOR_UM           CURSOR                  "res\\cur00001.cur"
+
 IDC_CURSOR_UF           CURSOR                  "res\\cur00002.cur"
+
 IDC_CURSOR_DM           CURSOR                  "res\\cursor3.cur"
+
 IDC_CURSOR_DF           CURSOR                  "res\\cur00003.cur"
+
 IDC_CURSOR_DS           CURSOR                  "res\\cursor4.cur"
+
 IDC_CURSOR_LF           CURSOR                  "res\\cursor5.cur"
+
 IDC_CURSOR_LM           CURSOR                  "res\\cursor6.cur"
+
 IDC_CURSOR_LS           CURSOR                  "res\\cursor7.cur"
+
 IDC_CURSOR_RS           CURSOR                  "res\\cur00004.cur"
+
 IDC_CURSOR_RM           CURSOR                  "res\\cur00005.cur"
+
 IDC_CURSOR_RF           CURSOR                  "res\\cur00006.cur"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_DLG_EDIT AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_DLG_DUAL_VALVE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

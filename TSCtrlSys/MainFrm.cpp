@@ -996,7 +996,12 @@ void CMainFrame::ShowNeedleZAdjustDialog()
 
 void CMainFrame::ShowDualValveDlg()
 {
-	m_DlgDualValve.DoModal();
+	if (m_DlgDualValve.GetSafeHwnd() == NULL)
+	{
+		m_DlgDualValve.Create(IDD_DLG_DUAL_VALVE, this);
+	}
+	m_DlgDualValve.CenterWindow();
+	m_DlgDualValve.ShowWindow(SW_SHOW);
 }
 
 

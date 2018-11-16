@@ -667,6 +667,5 @@ void CDlgPosInfo::OnBnClickedBtnStop()
 void CDlgPosInfo::OnBnClickedBtnMultivalveSet()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	CDlgDualValve dlg;
-	dlg.DoModal();
+	g_pFrm->ShowDualValveDlg();
 }

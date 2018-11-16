@@ -426,3 +426,13 @@ void CDlgDualValve::OnBnClickedSave()
 	// TODO: 在此添加控件通知处理程序代码
 	g_pFrm->RobotParam(FALSE);
 }
+
+
+BOOL CDlgDualValve::DestroyWindow()
+{
+	// TODO: 在此添加专用代码和/或调用基类
+	m_camBottomHK.CloseCamera();
+	CFunction::DelaySec(0.5);
+
+	return CDialogEx::DestroyWindow();
+}

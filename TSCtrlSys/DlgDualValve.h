@@ -66,4 +66,5 @@ public:
 	void UpdateZPos(double dZPos);
 	double m_dZCurPos;
 	afx_msg void OnBnClickedSave();
+	virtual BOOL DestroyWindow();
 };

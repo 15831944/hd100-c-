@@ -32,14 +32,6 @@ CDlgDualValve::CDlgDualValve(CWnd* pParent /*=NULL*/)
 
 CDlgDualValve::~CDlgDualValve()
 {
-	if (M_NULL != MilImage)
-	{
-		MbufFree(MilImage);
-	}
-	if (M_NULL != MilDisplay)
-	{
-		MdispFree(MilDisplay);
-	}
 }
 
 void CDlgDualValve::DoDataExchange(CDataExchange* pDX)
@@ -289,21 +281,30 @@ int CDlgDualValve::InitBottomCamera()
 	return bRtn ? 1:0;
 }
 
+int CDlgDualValve::FreeMilResource()
+{
+	m_camBottomHK.CloseCamera();
+	CFunction::DelaySec(0.5);
+	if (M_NULL != MilImage) {
+		MbufFree(MilImage);
+		MilImage = M_NULL;
+	}
+	if (M_NULL != MilDisplay) {
+		MdispFree(MilDisplay);
+		MilDisplay = M_NULL;
+	}
+
+	return 1;
+}
 
 LRESULT CDlgDualValve::OnMessageRedrawCCDEvent(WPARAM wparam, LPARAM lparam)
 {
 	UNREFERENCED_PARAMETER(wparam);
 	UNREFERENCED_PARAMETER(lparam);
 
-	if (NULL == m_pImageBuffer)
-	{
-		return 0;
-	}
-
-	if (M_NULL == MilImage)
-	{
-		return 0;
-	}
+	if (!IsWindowVisible() || !GetSafeHwnd())		return 0;
+	if (NULL == m_pImageBuffer)						return 0;
+	if (M_NULL == MilImage)							return 0;
 
 	MbufPut(MilImage, m_pImageBuffer);
 	Invalidate();
@@ -425,14 +426,4 @@ void CDlgDualValve::OnBnClickedSave()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	g_pFrm->RobotParam(FALSE);
-}
-
-
-BOOL CDlgDualValve::DestroyWindow()
-{
-	// TODO: 在此添加专用代码和/或调用基类
-	m_camBottomHK.CloseCamera();
-	CFunction::DelaySec(0.5);
-
-	return CDialogEx::DestroyWindow();
 }

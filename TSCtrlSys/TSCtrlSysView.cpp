@@ -55,6 +55,7 @@ CTSCtrlSysView::CTSCtrlSysView()
 
 CTSCtrlSysView::~CTSCtrlSysView()
 {
+
 }
 
 BOOL CTSCtrlSysView::PreCreateWindow(CREATESTRUCT& cs)
@@ -407,18 +408,21 @@ void CTSCtrlSysView::FreeMilSys()
 	if (M_NULL != MilImage)
 	{
 		MbufFree(MilImage);
+		MilImage = M_NULL;
 	}
 	if (M_NULL != MilDisplay)
 	{
-//		MdispSelect(MilDisplay, M_NULL);
 		MdispFree(MilDisplay);
+		MilDisplay = M_NULL;
 	}
 
 	if (M_NULL != MilSystem)
 		MsysFree(MilSystem);
+	MilSystem = M_NULL;
 
 	if (M_NULL != MilApplication)
 		MappFree(MilApplication);
+	MilApplication = M_NULL;
 }
 
 void CTSCtrlSysView::ImgLive()

@@ -1551,6 +1551,11 @@ void CMainFrame::OnCmdReopenFile()
 }
 void CMainFrame::OnClose()
 {
+	if (g_pFrm->m_DlgDualValve.GetSafeHwnd())
+	{
+		g_pFrm->m_DlgDualValve.FreeMilResource();
+	}
+
 	m_wndRightBar.m_DlgPosInfo.KillTimer(0);
 	m_Robot->m_pController->SetExOutport(0, -1, FALSE);
 

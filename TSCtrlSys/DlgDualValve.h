@@ -37,6 +37,7 @@ public:
 		MilImage;
 	void PaintShape(CRect rect);
 	int InitBottomCamera();
+	int FreeMilResource();
 	LRESULT OnMessageRedrawCCDEvent(WPARAM wparam, LPARAM lparam);
 
 	void UpdateCtrl(bool bShow);	// 更新界面控件	bShow=		true:值更新到界面	false:从界面读取到参数
@@ -66,5 +67,4 @@ public:
 	void UpdateZPos(double dZPos);
 	double m_dZCurPos;
 	afx_msg void OnBnClickedSave();
-	virtual BOOL DestroyWindow();
 };

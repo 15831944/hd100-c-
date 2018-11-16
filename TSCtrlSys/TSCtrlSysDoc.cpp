@@ -39,6 +39,7 @@ CTSCtrlSysDoc::CTSCtrlSysDoc()
 
 CTSCtrlSysDoc::~CTSCtrlSysDoc()
 {
+
 }
 
 BOOL CTSCtrlSysDoc::OnNewDocument()

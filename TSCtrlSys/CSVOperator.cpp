@@ -85,16 +85,16 @@ bool CCSVOperator::GetDouble(u32 uiLine, u32 uiRow, double& dValue)
 		return false;
 	}
 
-	std::string* pKey = GetString(uiLine, uiRow);
-	if (pKey)
-	{
-		dValue = atof(pKey->c_str());
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+// 	std::string* pKey = GetString(uiLine, uiRow);
+// 	if (pKey)
+// 	{
+// 		dValue = atof(pKey->c_str());
+// 		return true;
+// 	}
+// 	else
+// 	{
+// 		return false;
+// 	}
 }
 
 bool CCSVOperator::GetFloat(u32 uiLine, u32 uiRow, float& fValue)

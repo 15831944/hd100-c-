@@ -465,7 +465,7 @@ bool CRedrawTrack::LoadTrack(int iStartIndex, int iEndIndex, double dScale/* =1 
 				brushLine.tType=CMD_LINE_START;
 				brushRunList.push_back(brushLine);
 	
-				for (int i=0;i<(2*tArea.nNum+1);i++)
+				for (i=0;i<(2*tArea.nNum+1);i++)
 				{//加入圆弧倒角功能
 					////step1
 					brushLine.x = pPaintCmd.pDblValue[0] + (tArea.nDir==0?0:1)*((i/2)%2==0?1:0)*tArea.dx + (tArea.nDir==0?1:0)*((i/2)*tArea.dx +((i%2)==0?0:1)*tArea.dx);
@@ -497,7 +497,7 @@ bool CRedrawTrack::LoadTrack(int iStartIndex, int iEndIndex, double dScale/* =1 
 					brushRunList.push_back(brushLine);
 				}
 				////////////////////////////////////////////////////////////////////////
-				for(UINT i=0;i<brushRunList.size();i++)
+				for(i=0;i<brushRunList.size();i++)
 				{
 					if(brushRunList[i].tType==CMD_LINE_START)
 					{
@@ -1175,7 +1175,7 @@ void CRedrawTrack::Paint(CDC *pDC, CRect rect, BOOL bFront, double dOffsetX/* =0
 // 				break;
 // 			}
 		}
-		for(int i=0;i<7;i++)
+		for(i=0;i<7;i++)
 		{
 			dPt[i] = tCurPt.dPos[i];
 		}

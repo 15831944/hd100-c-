@@ -631,10 +631,10 @@ void CDlgPosInfo::OnBnClickedBtnMov()
 	}
 	return;
 
-	CString str;
+//	CString str;
 // 	str.Format("111111\r\n222222\r\n22222\r\n22222\r\n");
 // 	AfxMessageBox(str);
-	g_pFrm->m_Robot->m_pController->SetExOutport(0, -1, FALSE);
+//	g_pFrm->m_Robot->m_pController->SetExOutport(0, -1, FALSE);
 //	CFunction::WriteLog(__FILE__, __LINE__, "×ó×ªÆ¤´ø Ê§°Ü!", CFunction::LEV_ERROR);
 }
 

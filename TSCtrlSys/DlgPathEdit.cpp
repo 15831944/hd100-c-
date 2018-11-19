@@ -454,7 +454,7 @@ void CDlgPathEdit::OnClickListCmd(NMHDR* pNMHDR, LRESULT* pResult)
 		m_editModify.SetWindowText(csCellData);
 	}
 
-	LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
+//	LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
 //	NM_LISTVIEW  *pEditCtrl = (NM_LISTVIEW *)pNMHDR;
 	TRACE("行：%d，列：%d\n", pNMListView->iItem, pNMListView->iSubItem);
 	if (pNMListView->iItem==-1)//点击到非工作区
@@ -530,7 +530,7 @@ void CDlgPathEdit::OnClickListCmd(NMHDR* pNMHDR, LRESULT* pResult)
 			CString strTemp;
 			if (IsParamPoint(pLine))
 			{
-				for (int i=0; i<10; i++)
+				for (i=0; i<10; i++)
 				{
 					strTemp.Format("Dot%2d",i+1);
 					m_CtrlComboBoxModify.AddString(strTemp);
@@ -538,7 +538,7 @@ void CDlgPathEdit::OnClickListCmd(NMHDR* pNMHDR, LRESULT* pResult)
 			} 
 			else
 			{
-				for (int i=0; i<10; i++)
+				for (i=0; i<10; i++)
 				{
 					strTemp.Format("Line%2d",i+1);
 					m_CtrlComboBoxModify.AddString(strTemp);
@@ -1144,7 +1144,7 @@ void CDlgPathEdit::SaveCmdLine(LPCTSTR strFile)
 				strTemp.Format(",%.3fF", tTempCmdPoint.pDblValue[j]);
 				strText += strTemp;
 			}
-			for(int j=0; j<tTempCmdPoint.iIntNum; j++)
+			for(j=0; j<tTempCmdPoint.iIntNum; j++)
 			{
 				strTemp.Format(",%dD", tTempCmdPoint.pIntValue[j]);
 				strText += strTemp;
@@ -2904,6 +2904,10 @@ BOOL CDlgPathEdit::OnInitDialog()
 	CDialogEx::OnInitDialog();
 	// TODO:  在此添加额外的初始化
 
+	CImageList blankimagelist;
+	blankimagelist.Create(1, 30, TRUE | ILC_COLOR32, 1, 0);
+	m_wndList.SetImageList(&blankimagelist, LVSIL_SMALL);	//使用空白图片增加行高
+
 	// 获取主窗口大小
 	CRect rcMainfram;
 	GetClientRect(rcMainfram);
@@ -3160,7 +3164,7 @@ void CDlgPathEdit::OnBnClickedBtnReviewF()
 
 	for (; i<iCount; i++)
 	{
-		POSITION posIndex = g_pFrm->m_wndEditBar.m_rawList.FindIndex(i);
+		posIndex = g_pFrm->m_wndEditBar.m_rawList.FindIndex(i);
 		tgCmdLine &tgCmdTemp = g_pFrm->m_wndEditBar.m_rawList.GetAt(posIndex);
 		tgCmd1 = tgCmdTemp;
 

@@ -796,8 +796,6 @@ BOOL CTSCtrlSysView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 		SetCursor(LoadCursor(AfxGetInstanceHandle(),MAKEINTRESOURCE(g_nCursor[m_nCursorIndex])));
 		return TRUE;
 	}
-
-	return CView::OnSetCursor(pWnd, nHitTest, message);
 }
 
 

@@ -383,8 +383,6 @@ CString CConfigOp::GetProfileString(const CString strSection, const CString strE
 			return  m_strFileInfo.Mid(iIndexT, iIndex3 - iIndexT);
 		}
 	}
-
-	return strDefault;
 }
 
 /*************************************************

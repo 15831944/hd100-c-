@@ -2491,7 +2491,7 @@ void CMainFrame::SysParam(BOOL bRead)
 	 
 	CFunction::HandleInt(bRead, "SYSTEM", "bEnablePrecFun",g_pFrm->m_pSysParam->bEnablePrecFun, strFile);
 
-	for (int i=0;i<3;i++)//pid参数
+	for (i=0;i<3;i++)//pid参数
 	{
 		strKey.Format("PID_P%d", i);
 		CFunction::HandleDouble(bRead, "PID", strKey, m_pSysParam->PIDParam[i].PID_P, strFile);

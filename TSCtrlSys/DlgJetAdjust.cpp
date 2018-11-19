@@ -1548,7 +1548,7 @@ void CDlgJetAdjust::OnBnClickedBtnProbeSwitch()
 
 void CDlgJetAdjust::OnGridDbClick(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
 { 
-	NM_GRIDVIEW* pItem = (NM_GRIDVIEW*) pNotifyStruct;
+//	NM_GRIDVIEW* pItem = (NM_GRIDVIEW*) pNotifyStruct;
 //	TRACE(_T("DbClicked on ÊäÈë¿Ú row %d, col %d\n"), pItem->iRow, pItem->iColumn);
 
 	OnBnClickedBtnMovto();

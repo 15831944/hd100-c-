@@ -5,6 +5,7 @@
 #include "ColorButton.h"
 #include <vector>
 #include "afxwin.h"
+#include "AListCtrl.h"
 
 using namespace std;
 
@@ -57,7 +58,7 @@ protected:
 public:
 	CDlgShotCut	m_wndShotCutEdit;
 	CImageList	m_Images;
-	CListCtrl	m_wndList;
+	CAListCtrl	m_wndList;
 	BOOL		m_bInsertCmd;
 	CListBox	*m_pMsgList;
 	CList <tgCmdLine, tgCmdLine&> m_rawList;  // ¡Ÿ ±√¸¡Ó¡¥±Ì

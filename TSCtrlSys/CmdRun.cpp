@@ -117,7 +117,7 @@ UINT CCmdRun::PlayThread(LPVOID lparam)
 			// 称重校准时间到了
 			if (g_pFrm->m_pRobotParam->m_nIfAutoWeight && (p0->m_tmAutoWeight.TimerGetMinute() > g_pFrm->m_pRobotParam->m_nWeightIntervalValue))
 			{
-				int iRtn = p0->WeightAdjust();
+				iRtn = p0->WeightAdjust();
 				if (1 != iRtn)
 				{
 					p0->m_tSysStatus = K_RUN_STS_WEIGHTERROR;
@@ -4310,110 +4310,8 @@ BOOL  CCmdRun::ReviewFindMark(tgCmdLine *pCmd)
 		if(g_pView->PatFind(i+1+nGID*2, pCmd->pIntValue[i],dx, dy)<1)
 		{
 			return FALSE;
-			//g_pFrm->m_Robot->m_pController->GetCurPosMM(); 
-			g_pFrm->m_Precision.GetCurPosMM();
-			double xx = m_pController->g_ExMtnPara->dfCurpos[X_AXIS];
-			double yy = m_pController->g_ExMtnPara->dfCurpos[Y_AXIS];
-			double tempx=xx;
-			double tempy=yy;
-
-			double ccdMove=g_pFrm->m_pSysParam->m_ccdMoveDis;
-			int    ccdMoveCnt=g_pFrm->m_pSysParam->m_ccdMoveCnt;
-
-			for (int m=1;m<=ccdMoveCnt;m++)
-			{
-				g_pFrm->m_Precision.LineMoveXY(CRD1,0,tempx-ccdMove*m, tempy-ccdMove*m,t_vel,t_acc);
-				CFunction::DelaySec(0.1);
-				g_pView->m_pCamera->SoftTrigger();
-				g_pView->m_pCamera->WaitGrabOneFrame();
-				if(g_pView->PatFind(i+1+nGID*2, pCmd->pIntValue[i],dx, dy)>=1)
-					goto lab;
-
-				g_pFrm->m_Precision.LineMoveXY(CRD1,0,tempx, tempy-ccdMove*m,t_vel,t_acc);
-				CFunction::DelaySec(0.1);
-				g_pView->m_pCamera->SoftTrigger();
-				g_pView->m_pCamera->WaitGrabOneFrame();
-				if(g_pView->PatFind(i+1+nGID*2, pCmd->pIntValue[i],dx, dy)>=1)
-					goto lab;
-
-				g_pFrm->m_Precision.LineMoveXY(CRD1,0,tempx+ccdMove*m, tempy-ccdMove*m,t_vel,t_acc);
-				CFunction::DelaySec(0.1);
-				g_pView->m_pCamera->SoftTrigger();
-				g_pView->m_pCamera->WaitGrabOneFrame();
-				if(g_pView->PatFind(i+1+nGID*2, pCmd->pIntValue[i],dx, dy)>=1)
-					goto lab;
-
-				g_pFrm->m_Precision.LineMoveXY(CRD1,0,tempx+ccdMove*m, tempy,t_vel,t_acc);
-				CFunction::DelaySec(0.1);
-				g_pView->m_pCamera->SoftTrigger();
-				g_pView->m_pCamera->WaitGrabOneFrame();
-				if(g_pView->PatFind(i+1+nGID*2, pCmd->pIntValue[i],dx, dy)>=1)
-					goto lab;
-
-				g_pFrm->m_Precision.LineMoveXY(CRD1,0,tempx+ccdMove*m, tempy+ccdMove*m,t_vel,t_acc);
-				CFunction::DelaySec(0.1);
-				g_pView->m_pCamera->SoftTrigger();
-				g_pView->m_pCamera->WaitGrabOneFrame();
-				if(g_pView->PatFind(i+1+nGID*2, pCmd->pIntValue[i],dx, dy)>=1)
-					goto lab;
-
-				g_pFrm->m_Precision.LineMoveXY(CRD1,0,tempx, tempy+ccdMove*m,t_vel,t_acc);
-				CFunction::DelaySec(0.1);
-				g_pView->m_pCamera->SoftTrigger();
-				g_pView->m_pCamera->WaitGrabOneFrame();
-				if(g_pView->PatFind(i+1+nGID*2, pCmd->pIntValue[i],dx, dy)>=1)
-					goto lab;
-
-				g_pFrm->m_Precision.LineMoveXY(CRD1,0,tempx-ccdMove*m, tempy+ccdMove*m,t_vel,t_acc);
-				CFunction::DelaySec(0.1);
-				g_pView->m_pCamera->SoftTrigger();
-				g_pView->m_pCamera->WaitGrabOneFrame();
-				if(g_pView->PatFind(i+1+nGID*2, pCmd->pIntValue[i],dx, dy)>=1)
-					goto lab;
-
-				g_pFrm->m_Precision.LineMoveXY(CRD1,0,tempx-ccdMove*m, tempy,t_vel,t_acc);
-				CFunction::DelaySec(0.1);
-				g_pView->m_pCamera->SoftTrigger();
-				g_pView->m_pCamera->WaitGrabOneFrame();
-				if(g_pView->PatFind(i+1+nGID*2, pCmd->pIntValue[i],dx, dy)>=1)
-					goto lab;
-
-				if(m>=ccdMoveCnt)
-				{
-					// 移动以后还是没找到
-					g_pFrm->AddMsg("Find Mark Error!");
-					g_pFrm->m_wndRightBar.m_DlgPosInfo.SetDlgItemText(IDC_INFO_STATIC_MOTION,"Find Mark Error!");
-					if(theApp.m_SysUser.m_CurUD.level>GM_PERSONNEL)
-						g_pFrm->m_wndEditBar.EnableWindow(TRUE);
-
-					if(IDNO == AfxMessageBox(_T("模板匹配失败！手动查找?"),MB_YESNO))
-					{
-						// 移动以后还是没找到
-						g_pFrm->AddMsg("Find Mark Error!");
-						g_pFrm->m_wndRightBar.m_DlgPosInfo.SetDlgItemText(IDC_INFO_STATIC_MOTION,"Find Mark Error!");
-						m_tOffsetEX[nGID].x = -9999;
-						m_tOffsetEX[nGID].y = -9999;
-						return FALSE;
-					}else
-					{
-						g_pFrm->m_wndRightBar.m_DlgPosInfo.SetDlgItemText(IDC_INFO_STATIC_MOTION,"");
-						// 创建手动界面调整到位确定后再次查找，再找不到，直接退出
-						CFindmarkJog m_JogXYZ;
-						if(IDOK==m_JogXYZ.DoModal())
-						{
-							dx = IMG_WIDTH*0.5;
-							dy = IMG_HEIGHT*0.5;
-							goto lab; 
-						}else
-						{
-							return FALSE;
-						}
-					}
-
-				}
-			}
 		}
-lab:	 
+
 		// 查找成功
 		g_pFrm->m_Precision.GetCurPosMM();
 		g_pView->PatCenter(dx,dy);	
@@ -5390,15 +5288,15 @@ short CCmdRun::RunFlyPoint_Dots(tgCmdLine *pCmd,double dOffsetX,double dOffsetY)
 	return m_pController->TS_ListInit(CRD1, 1);
 	//////////////////////////////////////////////////////////////////////////
 
-	short sTemp = m_pController->TS_ListHPoint(CRD1,&dcp[m_CurToolNo],&pdp);//pCmd->pIntValue[0] 阀ID
-	if (RTN_NONE != sTemp)
-	{
-		return sTemp;
-	}
-
-	// 启动运动
-	sTemp=m_pController->TS_ListWaitStop();
-	return sTemp;
+// 	short sTemp = m_pController->TS_ListHPoint(CRD1,&dcp[m_CurToolNo],&pdp);//pCmd->pIntValue[0] 阀ID
+// 	if (RTN_NONE != sTemp)
+// 	{
+// 		return sTemp;
+// 	}
+// 
+// 	// 启动运动
+// 	sTemp=m_pController->TS_ListWaitStop();
+// 	return sTemp;
 }
 
 // 飞胶起点
@@ -6012,39 +5910,39 @@ short CCmdRun::RunZHeight(tgCmdLine *pCmd,double dOffsetX,double dOffsetY,double
 
 	//////////////////////////////////////////////////////////////////////////
 	////////////////////
-	unsigned short pValue=0;
-
-	g_pFrm->m_Robot->m_pController->GetExtADDAVal(0,(short)g_pFrm->m_pSysParam->nLaserReadPortID,&pValue);
-
-	ZHeightVal = (-5.0+(pValue/65535.0)*10.0)*2-pCmd->pDblValue[4];
-
-	CString Strtemp;
-	Strtemp.Format("Z轴激光测高差: %.3f", ZHeightVal);
-	g_pFrm->AddMsg(Strtemp);
-
-	/////////////////////
-	tgZMeter tZMeterTemp;
-
-	if (m_ZMeterVector.empty())
-	{   // 容器空 
-		*dValue = ZHeightVal;                // 返回高度值
-		m_dFirstHeightOffset = ZHeightVal;   // 高度偏差保存
-		nPushIndex = 0;                          
-	}
-	else
-	{
-		nPushIndex++;    
-		*dValue = 0;
-	}
-
-	tZMeterTemp.index = nPushIndex;
-	tZMeterTemp.delta = ZHeightVal;
-	m_ZMeterVector.push_back(tZMeterTemp);  // 数据压入容器
-
-	sTemp=m_pController->TS_ListInit(CRD1,1);
-	if(sTemp!=RTN_NONE) return sTemp;
-
-	return sTemp;
+// 	unsigned short pValue=0;
+// 
+// 	g_pFrm->m_Robot->m_pController->GetExtADDAVal(0,(short)g_pFrm->m_pSysParam->nLaserReadPortID,&pValue);
+// 
+// 	ZHeightVal = (-5.0+(pValue/65535.0)*10.0)*2-pCmd->pDblValue[4];
+// 
+// 	CString Strtemp;
+// 	Strtemp.Format("Z轴激光测高差: %.3f", ZHeightVal);
+// 	g_pFrm->AddMsg(Strtemp);
+// 
+// 	/////////////////////
+// 	tgZMeter tZMeterTemp;
+// 
+// 	if (m_ZMeterVector.empty())
+// 	{   // 容器空 
+// 		*dValue = ZHeightVal;                // 返回高度值
+// 		m_dFirstHeightOffset = ZHeightVal;   // 高度偏差保存
+// 		nPushIndex = 0;                          
+// 	}
+// 	else
+// 	{
+// 		nPushIndex++;    
+// 		*dValue = 0;
+// 	}
+// 
+// 	tZMeterTemp.index = nPushIndex;
+// 	tZMeterTemp.delta = ZHeightVal;
+// 	m_ZMeterVector.push_back(tZMeterTemp);  // 数据压入容器
+// 
+// 	sTemp=m_pController->TS_ListInit(CRD1,1);
+// 	if(sTemp!=RTN_NONE) return sTemp;
+// 
+// 	return sTemp;
 }
 
 short CCmdRun::RunLineStart(tgCmdLine *pCmd1,tgCmdLine *pNextTrackCmd,double dOffsetX,double dOffsetY)
@@ -7915,8 +7813,6 @@ short CCmdRun::RunWCRect(tgCmdLine *pCmd,tgCmdLine *pNextTrackCmd,double dOffset
 
 	short sTemp=m_pController->TS_ListWCRect(CRD1,&dcp[m_CurToolNo],&lWclp);
 	return sTemp;
-
-	return RTN_NONE;
 }
 // 称重划线
 short CCmdRun::RunWCLine(tgCmdLine *pCmd,tgCmdLine *pNextTrackCmd,double dOffsetX,double dOffsetY)
@@ -8018,9 +7914,8 @@ short CCmdRun::RunWCLine(tgCmdLine *pCmd,tgCmdLine *pNextTrackCmd,double dOffset
 
 	short sTemp=m_pController->TS_ListWCLine(CRD1,&dcp[m_CurToolNo],&lWclp);
 	return sTemp;
-
-	return RTN_NONE;
 }
+
 //  称重打点
 short CCmdRun::RunWCPot(tgCmdLine *pCmd,tgCmdLine *pNextTrackCmd,double dOffsetX,double dOffsetY)
 {
@@ -8535,33 +8430,33 @@ short CCmdRun::RunSub(int iStartIndex, int iEndIndex, double dOffsetX,double dOf
 
 			//////////////////////////////////////////////////////////////////////////
 
-			// 启动运动并等待运动停止  
-			sRtnTemp=m_pController->TS_ListWaitStop();
-			if(sRtnTemp!=RTN_NONE) return sRtnTemp;
-
-			if((g_pFrm->m_pSysParam->nFileSeparaEnable == 1)||
-				(g_pFrm->m_pSysParam->nFileScrapeEnable == 1))
-			{
-				if(!FindMarkEx(&pCurCmd))
-				{
-					return RTN_MARK_ERROR;
-				}
-			}
-			else
-			{
-				if(!FindMark(&pCurCmd))
-				{
-					return RTN_MARK_ERROR;
-				}
-			}
-
-			// 重新创建坐标系
-			sRtnTemp=m_pController->TS_ListInit(CRD1,1);
-			if(sRtnTemp!=RTN_NONE) 
-				return sRtnTemp;
-
-//			progEnd= true;
-			break;
+// 			// 启动运动并等待运动停止  
+// 			sRtnTemp=m_pController->TS_ListWaitStop();
+// 			if(sRtnTemp!=RTN_NONE) return sRtnTemp;
+// 
+// 			if((g_pFrm->m_pSysParam->nFileSeparaEnable == 1)||
+// 				(g_pFrm->m_pSysParam->nFileScrapeEnable == 1))
+// 			{
+// 				if(!FindMarkEx(&pCurCmd))
+// 				{
+// 					return RTN_MARK_ERROR;
+// 				}
+// 			}
+// 			else
+// 			{
+// 				if(!FindMark(&pCurCmd))
+// 				{
+// 					return RTN_MARK_ERROR;
+// 				}
+// 			}
+// 
+// 			// 重新创建坐标系
+// 			sRtnTemp=m_pController->TS_ListInit(CRD1,1);
+// 			if(sRtnTemp!=RTN_NONE) 
+// 				return sRtnTemp;
+// 
+// //			progEnd= true;
+// 			break;
 
 		case CMD_REPEATARC: 
 			sRtnTemp = RunBoardArc(pCurCmd,dOffsetX,dOffsetY);
@@ -10410,7 +10305,7 @@ short CCmdRun::LoadUnLoad_unloadLayerMove(int idx)
 		dPitch = dPitch/(layerCount-1);
 
 		double dPos = g_pFrm->m_pRobotParam->m_structLdUldParam.m_dUldPos[nCrtBoxId*2] + dPitch*idx;
-		short rtn = g_pFrm->m_Robot->m_pController->AxisMove(UNLOAD_AXIS,dPos,g_pFrm->m_mtrParamGts[UNLOAD_AXIS].m_Vmax,g_pFrm->m_mtrParamGts[UNLOAD_AXIS].m_Acc, TRUE);
+		rtn = g_pFrm->m_Robot->m_pController->AxisMove(UNLOAD_AXIS,dPos,g_pFrm->m_mtrParamGts[UNLOAD_AXIS].m_Vmax,g_pFrm->m_mtrParamGts[UNLOAD_AXIS].m_Acc, TRUE);
 		if (RTN_NONE != rtn)	return 0;
 		
 		g_pFrm->m_pRobotParam->m_structLdUldParam.m_nCrtUldLayerId = idx;

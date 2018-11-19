@@ -1075,7 +1075,7 @@ void CImgStatic::PaintTrack(CDC *pDC, CRect rect, double dCmdScale, int iStartIn
 				brushLine.tType=CMD_LINE_START;
 				brushRunList.push_back(brushLine);
 	
-				for (int i=0;i<(2*tArea.nNum+1);i++)
+				for (i=0;i<(2*tArea.nNum+1);i++)
 				{//加入圆弧倒角功能
 					////step1
 					brushLine.x = pPaintCmd.pDblValue[0] + (tArea.nDir==0?0:1)*((i/2)%2==0?1:0)*tArea.dx + (tArea.nDir==0?1:0)*((i/2)*tArea.dx +((i%2)==0?0:1)*tArea.dx);
@@ -1107,7 +1107,7 @@ void CImgStatic::PaintTrack(CDC *pDC, CRect rect, double dCmdScale, int iStartIn
 					brushRunList.push_back(brushLine);
 				}
 				////////////////////////////////////////////////////////////////////////
-				for(UINT i=0;i<brushRunList.size();i++)
+				for(i=0;i<brushRunList.size();i++)
 				{
 					if(brushRunList[i].tType==CMD_LINE_START)
 					{
@@ -1517,7 +1517,7 @@ BOOL CImgStatic::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	// TODO: Add your message handler code here and/or call default
 	::SetCursor(::LoadCursor(NULL, IDC_CROSS));
 	return TRUE;
-	return __super::OnSetCursor(pWnd, nHitTest, message);
+//	return __super::OnSetCursor(pWnd, nHitTest, message);
 }
 
 void CImgStatic::OnSize(UINT nType, int cx, int cy)
@@ -1823,7 +1823,7 @@ lab:
 				brushLine.tType=CMD_LINE_START;
 				brushRunList.push_back(brushLine);
 
-				for (int i=0;i<(2*tArea.nNum+1);i++)
+				for (i=0;i<(2*tArea.nNum+1);i++)
 				{//加入圆弧倒角功能
 					////step1
 					brushLine.x = pPaintCmd.pDblValue[0] + (tArea.nDir==0?0:1)*((i/2)%2==0?1:0)*tArea.dx + (tArea.nDir==0?1:0)*((i/2)*tArea.dx +((i%2)==0?0:1)*tArea.dx);
@@ -1855,7 +1855,7 @@ lab:
 					brushRunList.push_back(brushLine);
 				}
 				////////////////////////////////////////////////////////////////////////
-				for(UINT i=0;i<brushRunList.size();i++)
+				for(i=0;i<brushRunList.size();i++)
 				{
 					if(brushRunList[i].tType==CMD_LINE_START)
 					{

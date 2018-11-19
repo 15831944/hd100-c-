@@ -299,7 +299,7 @@ int CComDisp::HandleParamDispenser(BOOL bLoad)
 					return 0;
 				}
 
-				CString strTemp, strVal;
+				CString strVal;
 				strTemp.Format("%s", szBuf);
 				strVal = strTemp.Mid(5, 3);
 				m_dispParam.Musashi_Channel = atoi(strVal);
@@ -405,7 +405,7 @@ int CComDisp::HandleParamDispenser(BOOL bLoad)
 				nActRecLength = m_pComPort->ReadComm(szBuf, sizeof(szBuf)-1);
 				if (nActRecLength > 0)
 				{
-					CString strTemp, strTemp1;
+					CString strTemp1;
 					strTemp.Format("%s", szBuf);
 					strTemp1 = strTemp.Left(3);
 					m_dispParam.Rising = atoi(strTemp1);
@@ -581,7 +581,6 @@ int CComDisp::HandleParamDispenser(BOOL bLoad)
 					return 0;
 				}
 
-				CString strTemp;
 				strTemp.Format("%s", szBuf);
 				if ("A0" != strTemp.Mid(3,2))
 				{
@@ -613,7 +612,6 @@ int CComDisp::HandleParamDispenser(BOOL bLoad)
 				nActRecLength = m_pComPort->ReadComm(szBuf, sizeof(szBuf)-1);
 				if (nActRecLength > 0)
 				{
-					CString strTemp;
 					strTemp.Format("%s", szBuf);
 					if ("OK" == strTemp.Left(2))	break;
 					else 
@@ -621,8 +619,6 @@ int CComDisp::HandleParamDispenser(BOOL bLoad)
 							AfxMessageBox("写入Vermes参数出错");
 							return 0;
 					}
-
-					CFunction::DelaySec(0.01);
 				}
 			}
 			//////////////////////////////////////////////////////////////////////////
@@ -656,7 +652,6 @@ int CComDisp::HandleParamDispenser(BOOL bLoad)
 				nActRecLength = m_pComPort->ReadComm(szBuf, sizeof(szBuf)-1);
 				if (nActRecLength > 0)
 				{
-					CString strTemp;
  					strTemp.Format("%s", szBuf);
 					if ("OK" == strTemp.Left(2))
 					{
@@ -667,8 +662,6 @@ int CComDisp::HandleParamDispenser(BOOL bLoad)
 						AfxMessageBox("写入Kaifa参数出错");
 						return 0;
 					}
-
-					CFunction::DelaySec(0.01);
 				}
 			}
 			//////////////////////////////////////////////////////////////////////////

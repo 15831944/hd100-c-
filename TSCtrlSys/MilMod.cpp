@@ -302,9 +302,8 @@ void CMilMod::ShowMod(HWND hWnd)
 	{
 		return;
 	}
-	//////////////////////////////////////////////////////////////////////////
-	//MdispSelect(MilDisplay, M_NULL);	
 
+	//////////////////////////////////////////////////////////////////////////
 	MdispSelectWindow(MilDisplay, MilModImage/*MilModMaskImg*/, hWnd);
 	/* Enable the display of overlay annotations. */
 	MdispControl(MilDisplay, M_OVERLAY, M_ENABLE);

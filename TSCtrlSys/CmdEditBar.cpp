@@ -874,7 +874,7 @@ void CCmdEditBar::SaveCmdLine(LPCTSTR strFile)
 				strTemp.Format(",%.3fF", tTempCmdPoint.pDblValue[j]);
 				strText += strTemp;
 			}
-			for(int j=0; j<tTempCmdPoint.iIntNum; j++)
+			for(j=0; j<tTempCmdPoint.iIntNum; j++)
 			{
 				strTemp.Format(",%dD", tTempCmdPoint.pIntValue[j]);
 				strText += strTemp;

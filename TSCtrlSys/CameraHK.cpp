@@ -83,7 +83,6 @@ BOOL CCameraHK::InitCamera()			// 初始化相机系统
 		m_bCamSysInit = false;
 		return FALSE;
 	}
-	return FALSE;
 }
 
 
@@ -234,7 +233,6 @@ BOOL CCameraHK::OpenCamera(CString camName, HWND hWndDisplay, LPBYTE& lpDesIMGAd
 			m_nRet = MV_CC_StartGrabbing(m_pHandle);            // 开启抓图，只要传入一个句柄即可, 因为句柄已经和设备信息绑定在一起了
 			if (MV_OK != m_nRet)
 			{
-				CString strTemp;
 				strTemp.Format(_T("相机:%d开启抓图失败"), m_nCamIndex);
 				AfxMessageBox(strTemp);
 				return FALSE;
@@ -362,11 +360,11 @@ BOOL CCameraHK::WaitGrabOneFrame()	// 获取一帧图像,图像数据保存在buf中
 	}
 	return FALSE;	// 超时返回失败
 
-	m_nRet = MV_CC_GetOneFrame(m_pHandle, m_pImageData, MAX_FRAME_SIZE, &stMVFrameInfo);  // 抓取一帧图像Buffer            
-	if (m_nRet != MV_OK)
-		return FALSE;
-	else
-		return TRUE;
+// 	m_nRet = MV_CC_GetOneFrame(m_pHandle, m_pImageData, MAX_FRAME_SIZE, &stMVFrameInfo);  // 抓取一帧图像Buffer            
+// 	if (m_nRet != MV_OK)
+// 		return FALSE;
+// 	else
+// 		return TRUE;
 }
 
 BOOL CCameraHK::SetGain(double gain)	// 设置摄像头增益

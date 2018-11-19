@@ -168,31 +168,31 @@ void CTSCtrlSysDoc::OnFileNew()
 	g_pFrm->ShowPathEditDialog();
 	return;
 	// TODO: Add your command handler code here
-	CFileDialog FileDlg(FALSE,"*.ctrl","无标题",OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT,
-		"ITSCtrl Files(*.ctrl)|*.ctrl||");
-
-	CString path; 
-	GetModuleFileName(NULL,path.GetBufferSetLength(MAX_PATH+1),MAX_PATH); 
-	path.ReleaseBuffer(); 
-	int pos = path.ReverseFind('\\'); 
-	path = path.Left(pos); 
-	path +=_T("\\Project");
-	if ( FALSE == PathFileExists(path) )
-	{
-		CreateDirectory(path, NULL);
-	}
-	FileDlg.m_ofn.lpstrTitle = "新建"; 
-	FileDlg.m_ofn.lpstrInitialDir=path;
-
-	if(FileDlg.DoModal()==IDOK)
-	{
-		//AfxMessageBox( FileDlg.GetPathName() );
-		//g_pView->SendMessage(WM_COMMAND, MAKEWPARAM(ID_FILE_SAVE_AS,0),0);
-		SetPathName(FileDlg.GetPathName());
-		SetModifiedFlag(FALSE);//FALSE
-		g_pFrm->SetWindowTextEx();
-		g_pFrm->m_wndEditBar.OnCmdType(ID_CMD_CLEAR_ALL);
-	} 
+// 	CFileDialog FileDlg(FALSE,"*.ctrl","无标题",OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT,
+// 		"ITSCtrl Files(*.ctrl)|*.ctrl||");
+// 
+// 	CString path; 
+// 	GetModuleFileName(NULL,path.GetBufferSetLength(MAX_PATH+1),MAX_PATH); 
+// 	path.ReleaseBuffer(); 
+// 	int pos = path.ReverseFind('\\'); 
+// 	path = path.Left(pos); 
+// 	path +=_T("\\Project");
+// 	if ( FALSE == PathFileExists(path) )
+// 	{
+// 		CreateDirectory(path, NULL);
+// 	}
+// 	FileDlg.m_ofn.lpstrTitle = "新建"; 
+// 	FileDlg.m_ofn.lpstrInitialDir=path;
+// 
+// 	if(FileDlg.DoModal()==IDOK)
+// 	{
+// 		//AfxMessageBox( FileDlg.GetPathName() );
+// 		//g_pView->SendMessage(WM_COMMAND, MAKEWPARAM(ID_FILE_SAVE_AS,0),0);
+// 		SetPathName(FileDlg.GetPathName());
+// 		SetModifiedFlag(FALSE);//FALSE
+// 		g_pFrm->SetWindowTextEx();
+// 		g_pFrm->m_wndEditBar.OnCmdType(ID_CMD_CLEAR_ALL);
+// 	} 
 }
 
 // 模板路径 
@@ -339,7 +339,6 @@ void CProg_List::HandleAllProg(const BOOL bIfRead, const int unUsedParam)		// 参
 
 		for (i=0; i<m_nProgNum; i++)
 		{		
-			CString strTemp;
 			POSITION pz;
 
 			pz = m_listAllProgName.FindIndex(i);

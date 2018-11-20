@@ -266,17 +266,13 @@ CProg_List::CProg_List()
 	{
 		m_curProgName = "";
 		m_nProgNum = 0;
-		m_listAllProgName.RemoveAll();
-		m_listProgCreateTime.RemoveAll();
-		m_listProgDiscription.RemoveAll();	
+		m_listAllProgInfo.RemoveAll();
 	}
 }    
 
 CProg_List::~CProg_List()
 {
-	m_listAllProgName.RemoveAll();
-	m_listProgCreateTime.RemoveAll();
-	m_listProgDiscription.RemoveAll();	
+	m_listAllProgInfo.RemoveAll();
 }
 
 void CProg_List::SetChannel(int iChannel)
@@ -291,6 +287,7 @@ void CProg_List::HandleAllProg(const BOOL bIfRead, const int unUsedParam)		// 参
 	strFile = CFunction::GetDirectory() + "product\\progName.ini";
 	CString strKey, strApp;
 	CString strTemp('\0', 100);
+	tgStructProgInfo tmpInfo;
 
 	strApp.Format(_T("Channel_%d"), m_nChannel);
 
@@ -304,25 +301,29 @@ void CProg_List::HandleAllProg(const BOOL bIfRead, const int unUsedParam)		// 参
 		CFunction::HandleString(bIfRead, strApp, strKey, strTemp, strFile);
 		m_curProgName.Format("%s", strTemp);
 
-		m_listAllProgName.RemoveAll();
-		m_listProgCreateTime.RemoveAll();
-		m_listProgDiscription.RemoveAll();	
+		m_listAllProgInfo.RemoveAll();
 		for (i=0; i<m_nProgNum; i++)
 		{		
-			CString strTemp1('\0', 100);
-			CString strTemp2('\0', 100);
-			CString strTemp3('\0', 100);
 			strKey.Format(_T("Prog%d"), i);
-			CFunction::HandleString(bIfRead, strApp, strKey, strTemp1, strFile);
-			m_listAllProgName.AddTail(strTemp1);
+			CFunction::HandleString(bIfRead, strApp, strKey, strTemp, strFile);
+			tmpInfo.m_strProgName.Format("%s", strTemp);
 
 			strKey.Format(_T("CreateTime%d"), i);
-			CFunction::HandleString(bIfRead, strApp, strKey, strTemp2, strFile);
-			m_listProgCreateTime.AddTail(strTemp2);	
+			CFunction::HandleString(bIfRead, strApp, strKey, strTemp, strFile);
+			tmpInfo.m_strCreateTime.Format("%s", strTemp);
 
 			strKey.Format(_T("Discription%d"), i);
-			CFunction::HandleString(bIfRead, strApp, strKey, strTemp3, strFile);
-			m_listProgDiscription.AddTail(strTemp3);
+			CFunction::HandleString(bIfRead, strApp, strKey, strTemp, strFile);
+			tmpInfo.m_strDiscription.Format("%s", strTemp);
+
+			strKey.Format(_T("LastCallTime%d"), i);
+			CFunction::HandleString(bIfRead, strApp, strKey, strTemp, strFile);
+			if ("" == strTemp)
+				tmpInfo.m_strLastSelect.Format("%s", tmpInfo.m_strCreateTime);
+			else
+				tmpInfo.m_strLastSelect.Format("%s", strTemp);
+
+			m_listAllProgInfo.AddTail(tmpInfo);
 		}
 
 		if ("" != m_curProgName)
@@ -341,20 +342,17 @@ void CProg_List::HandleAllProg(const BOOL bIfRead, const int unUsedParam)		// 参
 		{		
 			POSITION pz;
 
-			pz = m_listAllProgName.FindIndex(i);
-			strTemp = m_listAllProgName.GetAt(pz);
+			pz = m_listAllProgInfo.FindIndex(i);
+			tmpInfo = m_listAllProgInfo.GetAt(pz);
+
 			strKey.Format(_T("Prog%d"), i);
-			CFunction::HandleString(bIfRead, strApp, strKey, strTemp, strFile);
-
-			pz = m_listProgCreateTime.FindIndex(i);
-			strTemp = m_listProgCreateTime.GetAt(pz);
+			CFunction::HandleString(bIfRead, strApp, strKey, tmpInfo.m_strProgName, strFile);
 			strKey.Format(_T("CreateTime%d"), i);
-			CFunction::HandleString(bIfRead, strApp, strKey, strTemp, strFile);
-
-			pz = m_listProgDiscription.FindIndex(i);
-			strTemp = m_listProgDiscription.GetAt(pz);
+			CFunction::HandleString(bIfRead, strApp, strKey, tmpInfo.m_strCreateTime, strFile);
 			strKey.Format(_T("Discription%d"), i);
-			CFunction::HandleString(bIfRead, strApp, strKey, strTemp, strFile);
+			CFunction::HandleString(bIfRead, strApp, strKey, tmpInfo.m_strDiscription, strFile);
+			strKey.Format(_T("LastCallTime%d"), i);
+			CFunction::HandleString(bIfRead, strApp, strKey, tmpInfo.m_strLastSelect, strFile);
 		}
 
 		if ("" != m_curProgName)
@@ -373,13 +371,14 @@ void CProg_List::Add(CString progName, CString progDiscription)
 
 	m_curProgName = progName;
 
-	m_listAllProgName.AddTail(progName);
-
+	tgStructProgInfo tmpInfo;
+	tmpInfo.m_strProgName = progName;
 	CTime tm = CTime::GetCurrentTime();
 	CString tmpTime = tm.Format("%Y-%m-%d %H:%M:%S");
-	m_listProgCreateTime.AddTail(tmpTime);
-
-	m_listProgDiscription.AddTail(progDiscription);
+	tmpInfo.m_strCreateTime = tmpTime;
+	tmpInfo.m_strLastSelect = tmpTime;
+	tmpInfo.m_strDiscription = progDiscription;
+	m_listAllProgInfo.AddHead(tmpInfo);
 
 	m_nProgNum++;
 
@@ -401,17 +400,11 @@ void CProg_List::Delete(const CString progName)
 	POSITION ps;
 	for (int i=0; i<m_nProgNum; i++)
 	{
-		ps = m_listAllProgName.FindIndex(i);
-		if (progName == m_listAllProgName.GetAt(ps))
+		ps = m_listAllProgInfo.FindIndex(i);
+		if (progName == m_listAllProgInfo.GetAt(ps).m_strProgName)
 		{
-			m_listAllProgName.RemoveAt(ps);
-
-			ps = m_listProgCreateTime.FindIndex(i);
-			m_listProgCreateTime.RemoveAt(ps);
-
-			ps = m_listProgDiscription.FindIndex(i);
-			m_listProgDiscription.RemoveAt(ps);
-
+			m_listAllProgInfo.RemoveAt(ps);
+			
 			m_nProgNum--;
 
 			CString strDir;
@@ -433,14 +426,23 @@ void CProg_List::Select(const CString progName)	// 选择程序
 	if (0  == m_nProgNum)			return;
 
 	POSITION ps;
+	tgStructProgInfo tmpInfo;
 	for (int i=0; i<m_nProgNum; i++)
 	{
-		ps = m_listAllProgName.FindIndex(i);
-		if (progName == m_listAllProgName.GetAt(ps))
+		ps = m_listAllProgInfo.FindIndex(i);
+		tmpInfo = m_listAllProgInfo.GetAt(ps);
+		if (progName == m_listAllProgInfo.GetAt(ps).m_strProgName)
 		{
 			m_curProgName = progName;
 			g_ProgData.SetCurProg(progName);
 			g_ProgData.LoadProgData();
+
+			CTime tm = CTime::GetCurrentTime();
+			CString tmpTime = tm.Format("%Y-%m-%d %H:%M:%S");
+			tmpInfo.m_strLastSelect = tmpTime;
+
+			m_listAllProgInfo.RemoveAt(ps);
+			m_listAllProgInfo.AddHead(tmpInfo);
 			return;
 		}
 	}

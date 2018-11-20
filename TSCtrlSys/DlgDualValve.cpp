@@ -307,7 +307,7 @@ LRESULT CDlgDualValve::OnMessageRedrawCCDEvent(WPARAM wparam, LPARAM lparam)
 	if (M_NULL == MilImage)							return 0;
 
 	MbufPut(MilImage, m_pImageBuffer);
-	Invalidate();
+	GetDlgItem(IDC_STATIC_Image)->Invalidate();
 
 	return 0;
 }

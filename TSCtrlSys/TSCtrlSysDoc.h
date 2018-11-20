@@ -6,6 +6,14 @@
 //////////////////////////////////////////////////////////////////////////
 //					记载所有产品列表的类								//
 //////////////////////////////////////////////////////////////////////////
+struct tgStructProgInfo		// 产品信息
+{
+	CString m_strProgName;
+	CString m_strCreateTime;
+	CString m_strDiscription;
+	CString m_strLastSelect;
+};
+
 class CProg_List
 {
 public:
@@ -18,9 +26,11 @@ public:
 	int m_nProgNum;
 	CString m_curProgName;
 
-	CList <CString, CString&> m_listAllProgName;
-	CList <CString, CString&> m_listProgCreateTime;	
-	CList <CString, CString&> m_listProgDiscription;	
+	CList <tgStructProgInfo, tgStructProgInfo&> m_listAllProgInfo;
+
+// 	CList <CString, CString&> m_listAllProgName;
+// 	CList <CString, CString&> m_listProgCreateTime;	
+// 	CList <CString, CString&> m_listProgDiscription;	
 	void HandleAllProg(const BOOL bIfRead, const int unUsedParam=0);		// 参数   bIfRead  TRUE:从文件加载数据    FALSE:保存数据到文件	
 	void Add(CString progName, CString progDiscription);
 	void Delete(const CString progName);

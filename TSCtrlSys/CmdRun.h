@@ -227,6 +227,7 @@ private:
 	static UINT UnloadThread_3Box(LPVOID lparam);	// 离线式3层料盒下料线程
 	static UINT ThreadHomeLd(LPVOID lparam);		// 离线式上料马达回零
 	static UINT ThreadHomeUld(LPVOID lparam);		// 离线式下料马达回零
+	static UINT ThreadRotateTableHome(LPVOID lparam);	// 旋转平台回原点
 
 public:
 	CList  <tgCmdLine, tgCmdLine&> m_cmdRunList;      //运行链表
@@ -386,6 +387,10 @@ public:
 	bool m_bLdHomeFinish;	// 程序是否已经完成回零上料
 	bool m_bUldHomeSucceed;	// 程序是否已经成功回零下料
 	bool m_bUldHomeFinish;	// 程序是否已经完成回零下料
+
+	short RotateTable_Home();	// 旋转平台回原点
+	bool m_bRotateTableHomeSucceed;
+	bool m_bRotateTableHomeFinish;
 
 	//////////////////////////////////////////////////////////////////////////
 	// 点胶模式     dryRun    wetRun

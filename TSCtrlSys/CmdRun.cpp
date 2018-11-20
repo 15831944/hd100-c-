@@ -32,6 +32,7 @@ CWinThread *g_pUnloadReadyThread = NULL;
 CWinThread *g_pLightsetThread = NULL;	 
 CWinThread *g_pHomeLdThread = NULL;
 CWinThread *g_pHomeUldThread = NULL;
+CWinThread *g_pHomeRotateTable = NULL;
 
 BOOL g_bStop = TRUE;	// 是否停止点胶
 BOOL g_bClose = FALSE;   //是否关闭了控制卡
@@ -383,6 +384,13 @@ UINT CCmdRun::LoadThread_3Box(LPVOID lparam)		// 离线式3层料盒上料线程
 	g_pFrm->m_wndRightBar.m_DlgPosInfo.SetLoadStatus("停止");
 	p2->m_bLoadFinish = true;
 
+	return 0;
+}
+
+UINT CCmdRun::ThreadRotateTableHome(LPVOID lparam)	// 旋转平台回原点
+{
+	CCmdRun *p4 = (CCmdRun*)lparam;
+	p4->RotateTable_Home();
 	return 0;
 }
 
@@ -3529,9 +3537,16 @@ void CCmdRun::Home()
 	g_pFrm->m_wndEditBar.m_wndList.EnableWindow(FALSE);
 	g_pFrm->m_wndToolBar.EnableWindow(FALSE);
 	//	g_pFrm->m_DrawToolBar.EnableWindow(FALSE);
+	if (1 == g_pFrm->m_pRobotParam->m_nIfRotateWorkpiece)
+	{
+		m_bRotateTableHomeFinish = false;
+		g_pHomeRotateTable = AfxBeginThread(ThreadRotateTableHome, this);
+	}
 
 	if (1 == g_pFrm->m_pRobotParam->m_nLoadUnloadMode)
 	{
+		m_bLdHomeFinish = false;
+		m_bUldHomeFinish = false;
 		if (!m_bLdHomeSucceed)
 			g_pHomeLdThread = AfxBeginThread(ThreadHomeLd, this);
 
@@ -10502,6 +10517,31 @@ short CCmdRun::LoadUnLoad_unloadCheck()
 		return 0;
 	}
 	return iRtn;
+}
+
+short CCmdRun::RotateTable_Home()	// 旋转平台回原点
+{
+	if(g_pFrm->m_Robot->m_pController->IsInitOk() == FALSE) 		return 0;
+	short rtn = 0;	
+
+	m_bRotateTableHomeFinish = false;
+	m_bRotateTableHomeSucceed = false;
+
+	rtn = m_pController->AxisHome(R_AXIS, g_pFrm->m_mtrParamGts[R_AXIS].m_Vhome, g_pFrm->m_mtrParamGts[R_AXIS].m_VhomeLow,
+		g_pFrm->m_mtrParamGts[R_AXIS].m_AccHome,  g_pFrm->m_mtrParamGts[R_AXIS].m_HomeReturn);
+
+	m_bRotateTableHomeFinish = true;
+	if (RTN_NONE == rtn)
+		m_bRotateTableHomeSucceed = true;
+	else 
+		m_bRotateTableHomeSucceed = false;
+
+
+	CFunction::DelaySec(0.5);
+
+	if (m_bRotateTableHomeSucceed)
+		m_pController->AxisMove(R_AXIS, 2, g_pFrm->m_mtrParamGts[R_AXIS].m_Vmax, g_pFrm->m_mtrParamGts[R_AXIS].m_Acc);
+	return rtn;
 }
 
 short CCmdRun::LoadUnLoad_Home(int mtrIndex)	// 上下料回原点

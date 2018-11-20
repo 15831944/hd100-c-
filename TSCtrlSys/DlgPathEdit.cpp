@@ -2998,6 +2998,8 @@ BOOL CDlgPathEdit::OnInitDialog()
 	m_editModify.ShowWindow(SW_HIDE);
 	m_editModify.SetFont(&m_fontEdit);
 
+	GetDlgItem(IDC_COMBO_MODIFY)->ShowWindow(SW_HIDE);	
+
 	haveccomboboxcreate = false;	// 初始化标志位，表示还没有创建下拉列表框
 
 	return TRUE;  // return TRUE unless you set the focus to a control

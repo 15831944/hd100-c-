@@ -65,6 +65,8 @@ ON_BN_CLICKED(IDC_BTN_RUN, &CDlgPosInfo::OnBnClickedBtnRun)
 ON_BN_CLICKED(IDC_BTN_PAUSE, &CDlgPosInfo::OnBnClickedBtnPause)
 ON_BN_CLICKED(IDC_BTN_STOP, &CDlgPosInfo::OnBnClickedBtnStop)
 ON_BN_CLICKED(IDC_BTN_MultiValve_Set, &CDlgPosInfo::OnBnClickedBtnMultivalveSet)
+ON_BN_CLICKED(IDC_Btn_Load_Board, &CDlgPosInfo::OnBnClickedBtnLoadBoard)
+ON_BN_CLICKED(IDC_Btn_Unload_Board, &CDlgPosInfo::OnBnClickedBtnUnloadBoard)
 END_MESSAGE_MAP()
 
 
@@ -668,4 +670,16 @@ void CDlgPosInfo::OnBnClickedBtnMultivalveSet()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	g_pFrm->ShowDualValveDlg();
+}
+
+
+void CDlgPosInfo::OnBnClickedBtnLoadBoard()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CDlgPosInfo::OnBnClickedBtnUnloadBoard()
+{
+	// TODO: 在此添加控件通知处理程序代码
 }

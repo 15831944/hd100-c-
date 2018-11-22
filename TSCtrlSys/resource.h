@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ 生成的包含文件。
-// 供 TSCtrlSys.rc 使用
+// Microsoft Visual C++ generated include file.
+// Used by TSCtrlSys.rc
 //
 #define IDOK2                           2
 #define IDCANCEL2                       3
@@ -823,7 +823,6 @@
 #define IDC_BTN_MOVTO_LASER_BASE_POS    2062
 #define IDC_BTN_USER                    2062
 #define IDC_BTN_PAUSE2                  2062
-#define IDC_Btn_Load_Board              2062
 #define IDC_BUTTON_PAT_BTEST            2063
 #define IDC_BUTTON4                     2063
 #define IDC_BTN_SET_JET_TEST_POS2       2063
@@ -1083,7 +1082,9 @@
 #define IDC_SCROLLBAR1                  2222
 #define IDC_SCR_LIGHT                   2222
 #define IDC_BTN_SEL                     2223
+#define IDC_EDIT_LIGHT2                 2223
 #define IDC_PROG_LIST                   2224
+#define IDC_SCR_LIGHT2                  2224
 #define IDC_STATIC_1                    2225
 #define IDC_STATIC_2                    2226
 #define IDC_BTN_ASK_PRE                 2227
@@ -1200,7 +1201,9 @@
 #define IDC_BTN_MultiValve_Set          2310
 #define IDC_BTN_Move_Valve_2            2311
 #define IDC_CHECK_CONVeyor              2311
+#define IDC_Btn_Load_Board              2311
 #define IDC_STATIC_ToolDetection        2312
+#define IDC_Btn_Unload_Board            2312
 #define IDC_BTN_ZUp                     2313
 #define IDC_BTN_ZDown                   2314
 #define IDC_STATIC_PROGNAME             2314
@@ -1212,7 +1215,6 @@
 #define IDC_COMBO_MODIFY                2405
 #define IDC_BTN_PARAM_DOT_SAVE          2406
 #define IDC_BTN_PARAM_LINE_SAVE         2407
-#define IDC_Btn_Unload_Board            2408
 #define IDC_SET_HEIGHT_COMBO_ID         2812
 #define IDC_DLG_NEEDLE_ZH_EDIT_Z        2818
 #define IDC_DLG_NEEDLE_ZH_EDIT_X        2819
@@ -1381,9 +1383,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        458
+#define _APS_NEXT_RESOURCE_VALUE        456
 #define _APS_NEXT_COMMAND_VALUE         32953
-#define _APS_NEXT_CONTROL_VALUE         2409
+#define _APS_NEXT_CONTROL_VALUE         2408
 #define _APS_NEXT_SYMED_VALUE           249
 #endif
 #endif

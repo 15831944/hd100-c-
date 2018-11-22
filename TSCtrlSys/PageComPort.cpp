@@ -11,10 +11,13 @@ const LPCSTR g_strComPortParamName[COMPORT_GRID_COL_NUM] =
 
 // CPageComPort 对话框
 
+const static UINT LightVal_Max=255;
 IMPLEMENT_DYNAMIC(CPageComPort, CPropertyPage)
 
 CPageComPort::CPageComPort()
 	: CPropertyPage(CPageComPort::IDD)
+	, nValCH1(0)
+	, nValCH2(0)
 {
 
 }
@@ -28,6 +31,9 @@ void CPageComPort::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_COM_GRID, m_ComPortGrid);
 	CPropertyPage::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_SCR_LIGHT, m_scrollLight);
+	DDX_Control(pDX, IDC_SCR_LIGHT2, m_scrollLight2);
+	DDX_Text(pDX, IDC_EDIT_LIGHT, nValCH1);
+	DDX_Text(pDX, IDC_EDIT_LIGHT2, nValCH2);
 }
 
 
@@ -51,7 +57,13 @@ BOOL CPageComPort::OnInitDialog()
 	// TODO:  在此添加额外的初始化
 	CreateGrid();
 
-	m_scrollLight.SetScrollRange(0, 99);
+//	g_pFrm->m_comLight.GetLightPower(nValCH1, nValCH2);
+	m_scrollLight.SetScrollRange(0, LightVal_Max);
+	m_scrollLight.SetScrollPos(nValCH1);
+	SetDlgItemInt(IDC_EDIT_LIGHT, nValCH1);
+	m_scrollLight2.SetScrollRange(0, LightVal_Max);
+	m_scrollLight2.SetScrollPos(nValCH2);
+	SetDlgItemInt(IDC_EDIT_LIGHT2, nValCH2);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 异常: OCX 属性页应返回 FALSE
@@ -207,18 +219,18 @@ void CPageComPort::OnBnClickedBtnLaRead()
 void CPageComPort::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	int nLt = 0;
-	if (!g_pFrm->m_comLight.GetLightPower(nLt))
-	{
-	}
-
-	g_pFrm->m_comLight.SetLightPower(99);
+	g_pFrm->m_comLight.GetLightPower(nValCH1, nValCH2);
 }
 
 
 void CPageComPort::OnBnClickedBtnSaveLight()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	// TODO: 在此添加控件通知处理程序代码	
+	UpdateData(TRUE);
+	m_scrollLight.SetScrollPos(nValCH1);
+	m_scrollLight2.SetScrollPos(nValCH2);
+
+	g_pFrm->m_comLight.SetLightPower(nValCH1, nValCH2);
 }
 
 
@@ -239,6 +251,12 @@ void CPageComPort::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 			strTemp.Format("%d", iTmpPos);
 			SetDlgItemText(IDC_EDIT_LIGHT, strTemp);
 			break;
+		case IDC_SCR_LIGHT2:
+			iTmpPos = nPos;
+			m_scrollLight2.SetScrollPos(iTmpPos);
+			strTemp.Format("%d", iTmpPos);
+			SetDlgItemText(IDC_EDIT_LIGHT2, strTemp);
+			break;
 
 		default:
 			break;
@@ -250,13 +268,23 @@ void CPageComPort::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 		{
 		case IDC_SCR_LIGHT:
 			iTmpPos = m_scrollLight.GetScrollPos();
-			if (iTmpPos<100)
+			if (iTmpPos<LightVal_Max)
 			{
 				iTmpPos++;
 			}
 			m_scrollLight.SetScrollPos(iTmpPos);
 			strTemp.Format("%d", iTmpPos);
 			SetDlgItemText(IDC_EDIT_LIGHT, strTemp);
+			break;
+		case IDC_SCR_LIGHT2:
+			iTmpPos = m_scrollLight2.GetScrollPos();
+			if (iTmpPos<LightVal_Max)
+			{
+				iTmpPos++;
+			}
+			m_scrollLight2.SetScrollPos(iTmpPos);
+			strTemp.Format("%d", iTmpPos);
+			SetDlgItemText(IDC_EDIT_LIGHT2, strTemp);
 			break;
 
 		default:
@@ -277,6 +305,16 @@ void CPageComPort::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 			strTemp.Format("%d", iTmpPos);
 			SetDlgItemText(IDC_EDIT_LIGHT, strTemp);
 			break;
+		case IDC_SCR_LIGHT2:
+			iTmpPos = m_scrollLight2.GetScrollPos();
+			if (iTmpPos>0)
+			{
+				iTmpPos--;
+			}
+			m_scrollLight2.SetScrollPos(iTmpPos);
+			strTemp.Format("%d", iTmpPos);
+			SetDlgItemText(IDC_EDIT_LIGHT2, strTemp);
+			break;
 
 		default:
 			break;
@@ -296,6 +334,16 @@ void CPageComPort::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 			strTemp.Format("%d", iTmpPos);
 			SetDlgItemText(IDC_EDIT_LIGHT, strTemp);
 			break;
+		case IDC_SCR_LIGHT2:
+			iTmpPos = m_scrollLight2.GetScrollPos();
+			if (iTmpPos>10)
+			{
+				iTmpPos -= 10;
+			}
+			m_scrollLight2.SetScrollPos(iTmpPos);
+			strTemp.Format("%d", iTmpPos);
+			SetDlgItemText(IDC_EDIT_LIGHT2, strTemp);
+			break;
 
 		default:
 			break;
@@ -307,13 +355,23 @@ void CPageComPort::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 		{
 		case IDC_SCR_LIGHT:
 			iTmpPos = m_scrollLight.GetScrollPos();
-			if (iTmpPos<90)
+			if (iTmpPos<LightVal_Max-10)
 			{
 				iTmpPos += 10;
 			}
 			m_scrollLight.SetScrollPos(iTmpPos);
 			strTemp.Format("%d", iTmpPos);
 			SetDlgItemText(IDC_EDIT_LIGHT, strTemp);
+			break;
+		case IDC_SCR_LIGHT2:
+			iTmpPos = m_scrollLight2.GetScrollPos();
+			if (iTmpPos<LightVal_Max-10)
+			{
+				iTmpPos += 10;
+			}
+			m_scrollLight2.SetScrollPos(iTmpPos);
+			strTemp.Format("%d", iTmpPos);
+			SetDlgItemText(IDC_EDIT_LIGHT2, strTemp);
 			break;
 
 		default:
@@ -325,7 +383,25 @@ void CPageComPort::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 		break;
 	}
 
-	g_pFrm->m_comLight.SetLightPower(iTmpPos);
+	switch (nSBCode)
+	{
+	case SB_THUMBPOSITION:
+	case SB_LINERIGHT:	
+	case SB_LINELEFT:	
+	case SB_PAGERIGHT:	
+	case SB_PAGELEFT:				
+		if (IDC_SCR_LIGHT == pScrollBar->GetDlgCtrlID())
+		{
+			nValCH1 = iTmpPos;
+			g_pFrm->m_comLight.SetLightPower(nValCH1, nValCH2);
+		}
+		else if (IDC_SCR_LIGHT2 == pScrollBar->GetDlgCtrlID())
+		{
+			nValCH2 = iTmpPos;
+			g_pFrm->m_comLight.SetLightPower(nValCH1, nValCH2);
+		}
+		break;
+	}
 
 	CPropertyPage::OnHScroll(nSBCode, nPos, pScrollBar);
 }

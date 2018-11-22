@@ -1599,7 +1599,10 @@ void CDlgPathEdit::OnCmdType(UINT ID)
 		break;
 
 	case IDS_TOOL_START:       // 直线起点 
-		tTempCmdPoint.tType = CMD_LINE_START;
+		if (0 == g_pFrm->m_pRobotParam->m_nWorkMode)
+			tTempCmdPoint.tType = CMD_SUPERSTART;
+		else if (1 == g_pFrm->m_pRobotParam->m_nWorkMode)
+			tTempCmdPoint.tType = CMD_LINE_START;
 		tTempCmdPoint.iDotNum=1;  
 		tTempCmdPoint.iDblNum = 8;
 		tTempCmdPoint.iIntNum = 10;
@@ -1614,7 +1617,10 @@ void CDlgPathEdit::OnCmdType(UINT ID)
 		break;
 	
 	case IDS_TOOL_PASS:     // 线段中点
-		tTempCmdPoint.tType = CMD_LINE_PASSING;
+		if (0 == g_pFrm->m_pRobotParam->m_nWorkMode)
+			tTempCmdPoint.tType = CMD_SUPERPOINT;
+		else if (1 == g_pFrm->m_pRobotParam->m_nWorkMode)
+			tTempCmdPoint.tType = CMD_LINE_PASSING;
 		tTempCmdPoint.iDotNum=1;
 		tTempCmdPoint.iDblNum = 8;
 		tTempCmdPoint.iIntNum = 10;
@@ -1640,7 +1646,10 @@ void CDlgPathEdit::OnCmdType(UINT ID)
 		bModify = FALSE;
 		break;
 	case IDS_TOOL_END:         // 线段结束点
-		tTempCmdPoint.tType = CMD_LINE_END;
+		if (0 == g_pFrm->m_pRobotParam->m_nWorkMode)
+			tTempCmdPoint.tType = CMD_SUPEREND;
+		else if (1 == g_pFrm->m_pRobotParam->m_nWorkMode)
+			tTempCmdPoint.tType = CMD_LINE_END;
 		tTempCmdPoint.iDotNum=1;
 		tTempCmdPoint.iDblNum = 8;
 		tTempCmdPoint.iIntNum = 10;

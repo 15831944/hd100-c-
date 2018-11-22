@@ -189,8 +189,8 @@ void CDlgDualValve::OnBnClickedBtnMoveRotate2()
 {
 	// TODO: 在此添加控件通知处理程序代码	
 	g_pFrm->m_Robot->GotoSafeZpos();
-	double x = g_pFrm->m_pRobotParam->m_posRotateMark1.x,
-		y = g_pFrm->m_pRobotParam->m_posRotateMark1.y;
+	double x = g_pFrm->m_pRobotParam->m_posRotateMark2.x,
+		y = g_pFrm->m_pRobotParam->m_posRotateMark2.y;
 	g_pFrm->m_Precision.LineMoveXY(CRD1, 0, x, y, g_pFrm->m_mtrParamGts[X_AXIS].m_VhandMove, g_pFrm->m_mtrParamGts[X_AXIS].m_Acc);
 	Sleep(100);
 }
@@ -205,11 +205,11 @@ void CDlgDualValve::OnBnClickedBtnRotate()
 	double dAngle = atan2(dY, dX);
 	dAngle = dAngle*180/PI;
 	if (dAngle > 90)
-		dAngle -= 360;
+		dAngle -= 180;
 	else if (dAngle < -90)
-		dAngle += 360;
+		dAngle += 180;
 
-	g_pFrm->m_Robot->m_pController->AxisMove(R_AXIS, dAngle, 1, 0.1);
+	g_pFrm->m_Robot->m_pController->AxisMove(R_AXIS, -dAngle, 1, 0.1);
 }
 
 

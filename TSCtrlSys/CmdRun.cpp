@@ -925,10 +925,10 @@ void CCmdRun::LoadIOMap()
 	char temp[MAX_PATH];
 
 	CGIniFile m_IniFile(CFunction::GetDirectory() + IOMAP_FILE_PATH);
-	if (1 == g_pFrm->m_pRobotParam->m_structHeightRead.m_nHtReadMode)
-	{	// 离线进料方式，加载MEMS配置
-		m_IniFile.SetPath(CFunction::GetDirectory() + IOMAP_FILE_PATH_OFFLINE);
-	}
+// 	if (1 == g_pFrm->m_pRobotParam->m_structHeightRead.m_nHtReadMode)
+// 	{	// 离线进料方式，加载MEMS配置
+// 		m_IniFile.SetPath(CFunction::GetDirectory() + IOMAP_FILE_PATH_OFFLINE);
+// 	}
 
 	for(int i=0;i<IN_POINT;i++)
 	{
@@ -1250,10 +1250,10 @@ int  CCmdRun::FixBoard(void)
 	{
 		rtn = ExOutput(_T("11号顶升气缸电磁阀"), TRUE);
 		CHECK_RTN_RTNVAL(_T("11号顶升气缸电磁阀打开出错"), rtn, 0);
+		rtn = ExOutput(_T("破真空电磁阀"), FALSE);
 
-		rtn = ExOutput(_T("1号真空吸电磁阀"), TRUE);
+		rtn = ExOutput(_T("真空吸电磁阀"), TRUE);
 		Sleep(200);
-		rtn = ExOutput(_T("2号真空吸电磁阀"), TRUE);
 
 		tmTemp.TimerStart();
 		while (1)
@@ -1445,12 +1445,10 @@ int  CCmdRun::FixBoard(void)
 	ExOutput(_T("11号侧夹气缸电磁阀"), FALSE);
 
 
-	rtn = ExOutput(_T("1号真空吸电磁阀"), FALSE);
-	rtn = ExOutput(_T("2号真空吸电磁阀"), FALSE);
+	rtn = ExOutput(_T("真空吸电磁阀"), FALSE);
 	Sleep(500);
 
-	rtn = ExOutput(_T("1号真空吸电磁阀"), TRUE);
-	rtn = ExOutput(_T("2号真空吸电磁阀"), TRUE);
+	rtn = ExOutput(_T("真空吸电磁阀"), TRUE);
 	return 1;
 }
 
@@ -1458,9 +1456,10 @@ int  CCmdRun::UnFixBoard(void)
 {
 	if (1 == g_pFrm->m_pRobotParam->m_nLoadUnloadMode)
 	{
-		ExOutput(_T("2号真空吸电磁阀"), FALSE);
-		ExOutput(_T("1号真空吸电磁阀"), FALSE);
-		Sleep(800);
+		ExOutput(_T("真空吸电磁阀"), FALSE);
+		ExOutput(_T("破真空电磁阀"), TRUE);
+		Sleep(200);
+		ExOutput(_T("破真空电磁阀"), FALSE);
 	}
 
 	ExOutput(_T("11号顶升气缸电磁阀"), FALSE);
@@ -3173,26 +3172,30 @@ void CCmdRun::Jog(int iAxisNo, double dMvSpeed/*0~1*/,int iDir/*-1, +1*/,BOOL bE
 
 
 	CString strTemp;
-	double dvel = 0;
-	if (iAxisNo == R_AXIS)
+	if ((R_AXIS==iAxisNo) || (X_AXIS==iAxisNo) || (Y_AXIS==iAxisNo) || (Z_AXIS==iAxisNo))
 	{
-		m_pController->AxisMove(iAxisNo,dStepDist,g_pFrm->m_pSysParam->dSpeedMaxJogU *dMvSpeed, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc*dMvSpeed, FALSE);
-		strTemp.Format("Move(%d, %.3f, v_%.3f, acc_%.3f, W%d", iAxisNo+1, iDir<0 ? 0 : m_pController->g_ExMtnPara->dfLength[iAxisNo], g_pFrm->m_pSysParam->dSpeedMaxJogU*dMvSpeed, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc*dMvSpeed, FALSE);
+		m_pController->AxisMove(iAxisNo,dStepDist,g_pFrm->m_mtrParamGts[iAxisNo].m_VhandMove*dMvSpeed, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc*dMvSpeed, FALSE);
 	}
-
-	if((iAxisNo == X_AXIS)||(iAxisNo == Y_AXIS))
+	else if (T1_AXIS == iAxisNo)
 	{
-		dvel = g_pFrm->m_pSysParam->dSpeedMaxJogXY;
-		m_pController->AxisMove(iAxisNo,dStepDist,dvel*dMvSpeed, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc*dMvSpeed, FALSE);
-		strTemp.Format("Move(%d, %.3f, v_%.3f, acc_%.3f, W%d", iAxisNo+1, iDir<0 ? 0 : m_pController->g_ExMtnPara->dfLength[iAxisNo], g_pFrm->m_pSysParam->dSpeedMaxJogXY*dMvSpeed, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc*dMvSpeed, FALSE);
-
+		m_pController->AxisJog(iAxisNo, iDir*g_pFrm->m_mtrParamGts[iAxisNo].m_VhandMove, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc);
 	}
-
-	if (iAxisNo == Z_AXIS)
-	{ //这里的Z轴dfLength应该为limit
-		m_pController->AxisMove(iAxisNo,dStepDist,g_pFrm->m_pSysParam->dSpeedMaxJogZ*dMvSpeed, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc*dMvSpeed, FALSE);
-		strTemp.Format("Move(%d, %.3f, v_%.3f, acc_%.3f, W%d", iAxisNo+1, iDir<0 ? 0 : m_pController->g_ExMtnPara->dfLength[iAxisNo], g_pFrm->m_pSysParam->dSpeedMaxJogZ*dMvSpeed, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc*dMvSpeed, FALSE);
+	else if (W1_AXIS == iAxisNo)
+	{
+		m_pController->AxisJog(iAxisNo, -iDir*g_pFrm->m_mtrParamGts[iAxisNo].m_VhandMove*dMvSpeed, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc*dMvSpeed);
 	}
+// 	else if((iAxisNo == X_AXIS)||(iAxisNo == Y_AXIS))
+// 	{
+// 		dvel = g_pFrm->m_mtrParamGts[iAxisNo].m_VhandMove;
+// 		m_pController->AxisMove(iAxisNo,dStepDist,dvel*dMvSpeed, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc*dMvSpeed, FALSE);
+// 		strTemp.Format("Move(%d, %.3f, v_%.3f, acc_%.3f, W%d", iAxisNo+1, iDir<0 ? 0 : m_pController->g_ExMtnPara->dfLength[iAxisNo], g_pFrm->m_pSysParam->dSpeedMaxJogXY*dMvSpeed, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc*dMvSpeed, FALSE);
+// 	}
+// 	else if (iAxisNo == Z_AXIS)
+// 	{ //这里的Z轴dfLength应该为limit
+// 		m_pController->AxisMove(iAxisNo,dStepDist,g_pFrm->m_pSysParam->dSpeedMaxJogZ*dMvSpeed, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc*dMvSpeed, FALSE);
+// 		strTemp.Format("Move(%d, %.3f, v_%.3f, acc_%.3f, W%d", iAxisNo+1, iDir<0 ? 0 : m_pController->g_ExMtnPara->dfLength[iAxisNo], g_pFrm->m_pSysParam->dSpeedMaxJogZ*dMvSpeed, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc*dMvSpeed, FALSE);
+	// 	}
+	strTemp.Format("Move(%d, %.3f, v_%.3f, acc_%.3f, W%d", iAxisNo+1, iDir<0 ? 0 : m_pController->g_ExMtnPara->dfLength[iAxisNo], g_pFrm->m_mtrParamGts[iAxisNo].m_VhandMove*dMvSpeed, g_pFrm->m_mtrParamGts[iAxisNo].m_Acc*dMvSpeed, FALSE);
 
 	g_pFrm->AddMsg(strTemp);
 }
@@ -10539,8 +10542,8 @@ short CCmdRun::RotateTable_Home()	// 旋转平台回原点
 
 	CFunction::DelaySec(0.5);
 
-	if (m_bRotateTableHomeSucceed)
-		m_pController->AxisMove(R_AXIS, 2, g_pFrm->m_mtrParamGts[R_AXIS].m_Vmax, g_pFrm->m_mtrParamGts[R_AXIS].m_Acc);
+//	if (m_bRotateTableHomeSucceed)
+//		m_pController->AxisMove(R_AXIS, 2, g_pFrm->m_mtrParamGts[R_AXIS].m_Vmax, g_pFrm->m_mtrParamGts[R_AXIS].m_Acc);
 	return rtn;
 }
 

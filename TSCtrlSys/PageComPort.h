@@ -24,6 +24,7 @@ public:
 
 	CImageList m_ImageList;
 	CGridCtrl m_ComPortGrid;
+	int nValCH1, nValCH2;
 
 protected:
 	void CreateGrid();
@@ -43,4 +44,5 @@ public:
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	CSliderCtrl m_sliderLight;
 	CScrollBar m_scrollLight;
+	CScrollBar m_scrollLight2;
 };

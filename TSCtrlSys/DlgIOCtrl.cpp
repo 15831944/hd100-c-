@@ -152,6 +152,8 @@ void CDlgIOCtrl::OnTcnSelchangeDlgIoTab(NMHDR *pNMHDR, LRESULT *pResult)
 		pageTrack.ShowWindow(SW_HIDE);
 		pageMtrParam.ShowWindow(SW_HIDE);
 		pageComPort.ShowWindow(SW_SHOW);
+		g_pFrm->m_comLight.GetLightPower(pageComPort.nValCH1, pageComPort.nValCH2);
+		pageComPort.UpdateData(FALSE);
 		break;
 	default:
 		break;
